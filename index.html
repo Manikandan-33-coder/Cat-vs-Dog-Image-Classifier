@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🐱🐶 Cat vs Dog Classifier</title>
+    <style>
+        body { text-align: center; margin-top: 50px; font-family: sans-serif; }
+        img { border-radius: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.3); margin: 20px; }
+        .animated-image {
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🐶🐱 Cat vs Dog Classifier</h1>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+        <img src="{{ img_path }}" alt="Uploaded Image" width="250px">
+
+        {% if prediction == 'Dog 🐶' %}
+            <h3>Look who's here!</h3>
+            <img src="{{ url_for('static', filename='dog.gif') }}" alt="Dog" class="animated-image" width="300px">
+        {% elif prediction == 'Cat 🐱' %}
+            <h3>Meowww!</h3>
+            <img src="{{ url_for('static', filename='cat.gif') }}" alt="Cat" class="animated-image" width="300px">
+        {% endif %}
+
+    {% endif %}
+
+</body>
+</html>
+
