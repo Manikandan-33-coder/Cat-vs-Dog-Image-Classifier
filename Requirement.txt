@@ -32,5 +32,4 @@ Requirements:
 - NumPy
 
 Install required libraries using:
-I will give the Dataset link give below pls download the dataset after you will run the program
-Dataset link : https://www.kaggle.com/datasets/anthonytherrien/dog-vs-cat
+
